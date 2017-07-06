@@ -1,0 +1,38 @@
+@font-face {
+    font-family: lead;
+    src: url('../fonts/RobotoSlab-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: sec;
+    src: url('../fonts/Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: secI;
+    src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: secL;
+    src: url('../fonts/Montserrat-ExtraLight.ttf') format('truetype');
+}
+
+h1,
+h2,
+h3 {
+    font-size: 1.25em;
+    line-height: 1.5;
+    font-family: lead;
+}
+
+body {
+    font: normal normal .8em/1.8 sec, Verdana, sans-serif; //     font-style: italic;
+    font-family: sec !important;
+    letter-spacing: 0.1em; // font-weight: bold;
+    // font-size: .8em;
+    // line-height: 1.2;
+    // font-family: Arial, sans-serif;
+    // can be shortened to the following:
+    // font: italic bold .8em/1.2 Arial, sans-serif;
+}

@@ -1,0 +1,7 @@
+/* line 1, ../../sass/layouts/contact.scss */
+footer {
+  z-index: 5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

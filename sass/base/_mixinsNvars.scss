@@ -1,0 +1,59 @@
+/*mixins*/
+
+$leadC: rgb(64, 64, 64);
+$leadCL: lighten($leadC, 70%);
+$bl: rgba(0, 0, 0, 1);
+$wh: rgba(255, 255, 255, 1);
+$sec: rgb(254, 209, 54);
+$secD: darken($sec, 10%);
+$secL: lighten($sec, 10%);
+$nicecoral: rgba(231, 76, 60, 1.0);
+@mixin fontL {
+    font-size: 2.6em;
+    font-family: lead;
+}
+
+@mixin ribbon($size) {
+    &:before {
+        @include pseudo;
+        left: 0;
+        top: 0;
+        border: {
+            top: $size + px solid transparentize($sec, .2);
+            right: $size + px solid transparent;
+            bottom: $size + px solid transparent;
+            left: $size + px solid transparentize($sec, .2);
+        }
+    }
+}
+
+@mixin pseudo {
+    position: absolute;
+    display: block;
+    content: '';
+}
+
+@mixin pseudo-full {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@mixin coolBlock {
+    max-width: 1200px;
+    padding: 10px;
+    text-align: justify;
+    line-height: 3.5em;
+    margin: 0 auto 3em auto;
+    width: 80%;
+}
+
+@mixin centeredContent {
+    max-width: 1200px;
+    padding: 20px 10px;
+    text-align: justify;
+    line-height: 1.8;
+    margin: 0 auto;
+    width: 80%;
+}

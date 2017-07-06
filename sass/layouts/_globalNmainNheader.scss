@@ -1,0 +1,339 @@
+@media only screen and (max-width: 768px) {
+    .main_header_content {
+        padding: 120px 30px !important;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        line-height: 2;
+        align-items: flex-start;
+    }
+    .header_aside {
+        margin-top: 1em;
+        width: 100%;
+    }
+    .section-header {
+        font-size: 2.5rem !important;
+        text-align: left !important;
+        padding-left: 14px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .indented-header {
+        line-height: 2 !important;
+    }
+}
+
+.loader {
+    background: $wh;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+    padding: 0 !important;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    .loader-wrapper {
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        .loader-wrapper-bar {
+            height: 20px;
+            margin: 0 2px;
+            width: 10px;
+            background: $leadC;
+            animation: loader 1.5s infinite alternate;
+        }
+        @for $i from 1 to 6 {
+            .loader-wrapper-bar:nth-child(#{$i}) {
+                animation-delay: .25s * $i;
+            }
+        }
+    }
+}
+
+@keyframes loader {
+    0%,
+    50%,
+    75% {
+        background: $sec;
+        transform: scale(1);
+    }
+    100% {
+        transform: scaleY(2.4);
+        opacity: 0.4;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+.section-header {
+    position: relative;
+    span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10%;
+        transition: 0.3s;
+        &.active {
+            text-shadow: 3px 3px 0 $sec;
+        }
+    }
+    background: darken($leadCL, 5%);
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: 0.3s;
+    margin-bottom: 3em !important;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 0 $wh;
+    text-align: center;
+    margin-bottom: 0.8em !important;
+}
+
+::selection {
+    background: desaturate($sec, 30%);
+    color: $leadC;
+}
+
+a {
+    line-height: 3;
+    text-decoration: none;
+    display: inline-block;
+    color: $leadC;
+}
+
+body {
+    font-size: 100%;
+}
+
+// main
+.main {
+    position: relative;
+    z-index: 10;
+    background: $wh;
+    width: 100%;
+}
+
+// important text
+.important-text {
+    font-size: 1.8em !important;
+    font-weight: 500 !important;
+    &::first-letter {
+        font-size: 2.8rem;
+    }
+}
+
+.text-animated {
+    display: inline-block;
+    position: relative;
+    h1 {
+        font-size: 2.4em;
+        margin-bottom: -.4em;
+    }
+    .text-animated-underline {
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        height: .2em;
+        border-width: 0;
+        background: $sec;
+        border-radius: 4px;
+    }
+}
+
+// nav n overlay
+.sec-header {
+    font-size: 2.5em;
+    color: $leadC;
+    text-shadow: 3px 3px 0 $sec;
+    margin: 10px 0 16px 10px;
+}
+
+.sec-header-techs {
+    color: $bl !important;
+}
+
+.indented-header {
+    text-indent: 1em;
+    line-height: 3;
+}
+
+#overlay {
+    @include pseudo-full;
+    position: fixed;
+    background: transparentize($bl, .2);
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 15;
+    pointer-events: none;
+    &.active {
+        pointer-events: all;
+        opacity: 1;
+    }
+}
+
+.nav {
+    position: fixed;
+    right: 0;
+    top: 20px;
+    z-index: 200;
+}
+
+.nav-ul {
+    line-height: 1.2;
+    font-size: 1.4em;
+    left: 0;
+    text-align: center;
+    text-shadow: 0 0 4px $wh;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.nav-link {
+    color: $wh;
+    transition: 0.3s;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $sec;
+        transform: translateY(3px);
+    }
+}
+
+.nav-li {
+    perspective: 100px;
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    transform-origin: 0 50%;
+    transform: translateY(40%) rotateX(60deg);
+    pointer-events: none;
+}
+
+.nav-ul {
+    margin-top: .5em;
+    &.active {
+        pointer-events: inherit;
+        .nav-li {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: inherit;
+        }
+    }
+    @for $i from 1 through 4 {
+        li:nth-child(#{$i}) {
+            transition-delay: ($i - 1) * 0.1s;
+        }
+    }
+}
+
+.nav-container {
+    position: relative;
+}
+
+.nav-panel {
+    display: flex;
+    line-height: 2;
+    box-shadow: 0 1px 2px $bl;
+    transition: 0.3s;
+    &.active {
+        opacity: 0;
+        transform: translateX(20%);
+        pointer-events: none;
+    }
+    .nav-trigger {
+        cursor: pointer;
+        background: $leadC;
+        padding: 10px 16px;
+        color: white;
+        position: relative;
+        &.active {
+            .hamburger {
+                .bar,
+                .bar:nth-child(1) {
+                    top: 0;
+                }
+            }
+        }
+        .hamburger {
+            width: 22px;
+            height: 3px;
+            background: $wh;
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transition: background 0.3s;
+            transform: translate(-50%, -50%);
+            box-shadow: .1px .1px 2px $sec;
+            .bar:nth-child(1) {
+                @include pseudo;
+                background: $wh;
+                box-shadow: .1px .1px 2px $sec;
+                top: -7px;
+                width: 100%;
+                height: 100%;
+                transition: .3s;
+            }
+            .bar {
+                @include pseudo;
+                background: $wh;
+                box-shadow: .1px .1px 2px $sec;
+                top: 7px;
+                width: 100%;
+                height: 100%;
+                transition: .3s;
+            }
+        }
+    }
+    .nav-tracker {
+        background: $leadC;
+        font-family: lead;
+        text-shadow: 1px 1px 2px $bl;
+        padding: 10px 25px;
+        text-transform: uppercase;
+        color: white;
+        background: linear-gradient(to top, $sec, lighten($sec, 20%));
+    }
+}
+
+// header
+.main_header {
+    min-height: 75vh;
+    height: 600px;
+    background: url('../images/greatingsfromthemotain.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 200px;
+    &:before {
+        @include pseudo;
+        @include pseudo-full;
+        background: transparentize($bl, .6);
+    }
+    &:after {
+        @include pseudo;
+        top: 100%;
+        width: 100%;
+        background-image: linear-gradient(to bottom, transparentize($leadC, .8) 0%, transparent);
+        height: 100px;
+    }
+}
+
+.main_header_content {
+    height: 600px;
+    align-items: flex-start;
+    color: $wh;
+    padding: 120px 120px;
+    width: 100%;
+    max-width: 1200px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+}

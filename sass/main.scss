@@ -1,0 +1,26 @@
+/*
+  SkyApp Bootstrap Sass Theme
+  Author: Damian Furmańczyk(based on TraversyMedia)
+  Version: 0.0.1
+*/
+
+
+/*BASE - Base styles, variables, mixins, etc */
+
+@import 'base/_mixinsNvars.scss';
+@import 'base/_normalize.scss';
+
+/* MODULES - Individual site components */
+
+@import 'modules/_textAnim.scss';
+@import 'modules/_typography.scss';
+@import 'modules/_skills.scss';
+@import 'modules/_buttonsNFormsAnim.scss';
+
+/* Layouts - Page layout styles */
+
+@import 'layouts/_sectionsNcont.scss';
+@import 'layouts/_nav.scss';
+@import 'layouts/_globalNmainNheader.scss';
+@import 'layouts/_skills.scss';
+@import 'layouts/_contact.scss';
